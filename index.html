@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dr. Mehdi Peikar - Personal Website</title>
+  <title>Dr. Mehdi Peikar</title>
   <link rel="icon" type="image/png" href="DrPeikarLogo.png">
 <style>
     /* CSS styles */
@@ -10,8 +10,19 @@
       margin: 0;
       padding: 0;
     }
-    
-    /* Main navigation */
+    #podcasts ul {
+    list-style-type: none; /* Removes bullet points */
+    }
+
+    #podcasts h2 {
+      margin-bottom: 10px; /* Reduced space below the title */
+      color: #336699; /* Matching the banner color */
+    }
+
+    #podcasts ul li {
+      margin-top: 0px; /* Reduces space at the top of each list item */
+      margin-bottom: 20px; /* Space below each item, adjust as needed */
+    }
     .nav {
       background-color: #336699;
       padding: 10px;
@@ -121,6 +132,9 @@
     .video-container video {
       max-width: 100%;
     }
+    html {
+  overflow-y: scroll;
+     }
   </style>
 </head>
 <body>
@@ -129,6 +143,7 @@
     <ul>
       <li><a class="active" href="#home">Dr. Mehdi Peikar</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#podcasts">Podcasts</a></li>
     </ul>
     <!-- Logo -->
     <img class="logo" id="logo" src="DrPeikarLogo.png" alt="Dr. Peikar Logo">
@@ -171,6 +186,46 @@
       </div>
     </div>
     
+    <div class="content-section" id="podcasts">
+      
+      <ul>
+        <h2 style="color: #336699;">People and Practice Podcast</h2>
+          <li>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/0xHcoH7b2xs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </li>
+          <h2 style="color: #336699;">MedMark Interview</h2>
+          <li>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/GzAchUgiIjY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </li>
+          <h2 style="color: #336699;">The ProPreuneur Podcast</h2>
+          <li>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/6eQRr1r_SWM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </li>
+          <h2 style="color: #336699;">Orthosales Engine Podcast</h2>
+          <li>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/C7Vw1XmO4vM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </li>
+          <h2 style="color: #336699;">MedMark Interview 2</h2>
+          <li>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/HrjlUXzwcpU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </li>
+          <h2 style="color: #336699;">The Health Technology Podcast</h2>
+          <li>
+            <a href="https://rosenmaninstitute.org/podcasts/mehdi-peikar-fighting-tooth-and-nail/" target="_blank">
+              <img src="Rosenman.png" alt="The Health Technology Podcast" style="width: 560px; height: auto;">
+            </a>
+          </li>
+          <h2 style="color: #336699;">The In Your Face Podcast</h2>
+          <li>
+            <a href="https://www.partners2.retainerclub.com/post/using-brius-technologies-to-independently-move-and-straighten-teeth" target="_blank">
+              <img src="Feldman.png" alt="The In Your Face Podcast" style="width: 560px; height: auto;">
+            </a>
+          </li>
+          <!-- The last link appears to be not a direct YouTube embed link but a link to an external page. -->
+          <!-- Ensure all iframe sources are direct YouTube embed URLs for videos. -->
+      </ul>
+  </div>
+  
     
     
     <div class="content-section" id="brius">
@@ -207,43 +262,46 @@
   <script>
     // Get all tab links
     var tabs = document.querySelectorAll('.nav a');
-    
+
     // Get all content sections
     var contentSections = document.querySelectorAll('.content-section');
-    
+
     // Add click event listener to each tab link
     tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default anchor behavior
+
         // Remove active class from all tabs
         tabs.forEach(function(tab) {
           tab.classList.remove('active');
         });
-        
+
         // Remove active class from all content sections
         contentSections.forEach(function(section) {
           section.classList.remove('active');
         });
-        
+
         // Add active class to the clicked tab
         this.classList.add('active');
-        
+
         // Get the corresponding content section ID
         var sectionId = this.getAttribute('href').substring(1);
-        
+
         // Add active class to the corresponding content section
-        document.getElementById(sectionId).classList.add('active');
-         
-        // Scroll to the top of the page
-         window.scrollTo(0, 0);
+        var activeSection = document.getElementById(sectionId);
+        activeSection.classList.add('active');
+
+        // Scroll to the top of the active section
+        activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
 
     // Adjust the height of the logo to match the height of the tab
     var logo = document.getElementById('logo');
     var tabHeight = tabs[0].offsetHeight;
     logo.style.height = tabHeight + 'px';
   </script>
-</body>
 <!DOCTYPE html>
 <html>
 <head>
@@ -282,6 +340,15 @@
         background-color: #eee;
         border-top: 1px solid #ddd;
     }
+    <style>
+        #podcasts ul li {
+          margin-bottom: 500px; /* Adds space below each list item */
+        }
+
+        #podcasts ul li h3 {
+          margin-bottom: 10px; /* Adds space below the title */
+          color: #color-code; /* Change the color of the title */
+        }
   </style>
 </head>
 <body>
