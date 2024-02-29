@@ -260,47 +260,47 @@
   
   <!-- JavaScript to handle tab color changes, content display, and logo height adjustment -->
   <script>
-    // Get all tab links
-    var tabs = document.querySelectorAll('.nav a');
+// Get all tab links
+var tabs = document.querySelectorAll('.nav a');
 
-    // Get all content sections
-    var contentSections = document.querySelectorAll('.content-section');
+// Get all content sections
+var contentSections = document.querySelectorAll('.content-section');
 
-    // Add click event listener to each tab link
+// Add click event listener to each tab link
+tabs.forEach(function(tab) {
+  tab.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default anchor behavior
+
+    // Remove active class from all tabs
     tabs.forEach(function(tab) {
-      tab.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default anchor behavior
-
-        // Remove active class from all tabs
-        tabs.forEach(function(tab) {
-          tab.classList.remove('active');
-        });
-
-        // Remove active class from all content sections
-        contentSections.forEach(function(section) {
-          section.classList.remove('active');
-        });
-
-        // Add active class to the clicked tab
-        this.classList.add('active');
-
-        // Get the corresponding content section ID
-        var sectionId = this.getAttribute('href').substring(1);
-
-        // Add active class to the corresponding content section
-        var activeSection = document.getElementById(sectionId);
-        activeSection.classList.add('active');
-
-        // Scroll to the top of the active section
-        activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+      tab.classList.remove('active');
     });
 
+    // Remove active class from all content sections
+    contentSections.forEach(function(section) {
+      section.classList.remove('active');
+    });
 
-    // Adjust the height of the logo to match the height of the tab
-    var logo = document.getElementById('logo');
-    var tabHeight = tabs[0].offsetHeight;
-    logo.style.height = tabHeight + 'px';
+    // Add active class to the clicked tab
+    this.classList.add('active');
+
+    // Get the corresponding content section ID
+    var sectionId = this.getAttribute('href').substring(1);
+
+    // Add active class to the corresponding content section
+    var activeSection = document.getElementById(sectionId);
+    activeSection.classList.add('active');
+
+    // Do not perform any scroll action here
+    // The content visibility has already been updated above
+  });
+});
+
+// Adjust the height of the logo to match the height of the tab
+var logo = document.getElementById('logo');
+var tabHeight = tabs[0].offsetHeight;
+logo.style.height = tabHeight + 'px';
+
   </script>
 <!DOCTYPE html>
 <html>
