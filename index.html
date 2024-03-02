@@ -3,9 +3,23 @@
 <head>
   <title>Dr. Mehdi Peikar</title>
   <link rel="icon" type="image/png" href="DrPeikarLogo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
     /* CSS styles */
-    body {
+body {
+      font-size: 16px; /* Or 100% */
+    }
+    h1, h2, h3, p {
+      font-size: 1rem; /* Adjust accordingly */
+    }
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 14px; /* Slightly smaller on mobile devices */
+      }
+    }
+
+body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -135,6 +149,23 @@
     html {
   overflow-y: scroll;
      }
+
+     table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures that the border is neat */
+  }
+  th, td {
+    border-bottom: 1px solid #ddd; /* Grey line between rows */
+    padding: 8px; /* Adds some padding for text inside cells */
+  }
+  th {
+    background-color: #f2f2f2; /* Light grey background for the header row */
+  }
+  img, video {
+  max-width: 100%;
+  height: auto;
+  }
+
   </style>
 </head>
 <body>
@@ -144,6 +175,8 @@
       <li><a class="active" href="#home">Dr. Mehdi Peikar</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#podcasts">Podcasts</a></li>
+      <li><a href="#Brius">Brava by Brius</a></li>
+
     </ul>
     <!-- Logo -->
     <img class="logo" id="logo" src="DrPeikarLogo.png" alt="Dr. Peikar Logo">
@@ -156,7 +189,7 @@
         <img src="Mehdi Peikar 2X2.png" alt="Dr. Mehdi Peikar Photo">
       </div>
       <p>
-  Dr. Mehdi Peikar, is an orthodontist and a physicist and a graduate of the UCLA School of Dentistry, is the inventor and founder of BRIUS. He also holds a Ph.D. in Biomechanics from Johns Hopkins University and a Master's degree in Quantum Mechanics and Condensed Matter from the University of Illinois. Utilizing his experience in biomechanics, Dr. Peikar engineered the BRIUS system, known also as Independent Mover or Brava, harnessing the latest in 3D printing, material science, and AI to deliver superior biomechanics for tooth movement. Following braces and aligners, BRIUS represents the third evolution in teeth movement techniques. 
+        Dr. Mehdi Peikar, is an orthodontist and a physicist and a graduate of the UCLA School of Dentistry, is the inventor and founder of BRIUS. He also holds a Ph.D. in Biomechanics from Johns Hopkins University and a Master's degree in Quantum Mechanics and Condensed Matter from the University of Illinois. Utilizing his experience in biomechanics, Dr. Peikar engineered the BRIUS system, known also as Independent Mover or Brava, harnessing the latest in 3D printing, material science, and AI to deliver superior biomechanics for tooth movement. Following braces and aligners, BRIUS represents the third evolution in teeth movement techniques. 
       </p>
       <p>
         Dr. Peikar has secured over 60 patents and BRIUS Technologies Inc., the company he founded has raised more than $50 million in funding so far.
@@ -165,26 +198,32 @@
     
     <div class="content-section" id="education">
       <div style="text-align: center;">
-        <table class="education-table">
-          <tr style="background-color: #f2f2f2;">
-            <th>Years</th>
-            <th>Education</th>
+        <table>
+          <tr>
+            <th style="width: 120px;">Years</th>
+            <th style="width: 200px;">School</th>
+            <th style="width: 240px;">Field of Study</th>
           </tr>
           <tr>
             <td>2016–2019</td>
-            <td><strong>Orthodontics</strong>, UCLA</td>
+            <td>UCLA</td>
+            <td>Orthodontics</td>
           </tr>
           <tr>
             <td>2015–2016</td>
-            <td><strong>PhD in Biomechanics</strong>, Johns Hopkins School of Medicine</td>
+            <td>Johns Hopkins University</td>
+            <td>PhD in Biomechanics</td>
           </tr>
           <tr>
             <td>2012–2015</td>
-            <td><strong>Masters in Quantum Mechanics and Condensed Matter</strong>, University of Illinois at Urbana-Champaign</td>
+            <td>University of Illinois at Urbana-Champaign</td>
+            <td>Masters in Quantum Mechanics and Condensed Matter</td>
           </tr>
         </table>
+        
       </div>
     </div>
+    
     
     <div class="content-section" id="podcasts">
       
@@ -224,39 +263,41 @@
           <!-- The last link appears to be not a direct YouTube embed link but a link to an external page. -->
           <!-- Ensure all iframe sources are direct YouTube embed URLs for videos. -->
       </ul>
-  </div>
-  
-    
-    
-    <div class="content-section" id="brius">
-      <h3>BRIUS</h3>
-      <div class="video-container">
-        <video controls autoplay loop>
-          <source src="BRIUS.mp4" type="video/mp4">
-        </video>
+    </div>
+
+
+      <div class="content-section" id="Brius">
+        <h2>Brave By Brius</h2>
+        <p>
+          Dr. Mehdi Peikar, a UCLA-trained orthodontist with extensive expertise in quantum mechanics, condensed matter, and biomechanics, is the inventor and founder of <a href="https://www.brius.com" target="_blank">Brius Technologies</a>. The flagship product, Brava, represents a groundbreaking advancement in orthodontic treatment, leveraging over 60 patents to offer a novel approach to teeth straightening. Unlike traditional methods, Brava introduces a unique system known as Independent Mover technology, which utilizes AI to plan and execute the independent and simultaneous movement of teeth, ensuring a customized, efficient, and patient-centric treatment experience. This innovation not only accelerates the orthodontic process but also enhances comfort and outcomes for patients. Brius Technologies has successfully raised over $50 million in funding, treated thousands of patients across the US and Asia, and solidified his reputation as a leading innovator in the field of orthodontics, poised to impact the future of dental care with his contributions.
+        </p>        
+        <div id="videoContainer" style="position: relative;">
+          <img id="videoThumb" src="thumbnail.png" style="width:100%; cursor: pointer;" onclick="playVideo()"/>
+          <img src="playButton.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10%; height: auto;cursor: pointer;" onclick="playVideo()"/>
       </div>
-      <p>
-        Brius Technologies Inc., founded by Dr. Mehdi Peikar, is at the forefront of revolutionizing orthodontic procedures with their innovative orthodontic device, the Brius or Brava. This unique device is part of a new category of orthodontic tools known as Independent Movers, conceived by Dr. Peikar, signifying the third generation of orthodontic treatment following traditional braces and aligners.
-      </p>
-      <p>
-        What sets the Brius apart is its unique design and the usage of a shape memory alloy called NiTi. Each tooth is connected to an anchorage bar via a flexible arm made from this innovative material. The flexibility and memory feature of NiTi allow the device to passively adapt to the alignment of the teeth and provide a consistent gentle force to guide them to their desired position.
-      </p>
-      <p>
-        The process of getting a Brius device begins with the orthodontist scanning the patient's teeth and sending the scan to Brius Technologies Inc. Using advanced software, the teeth are virtually aligned as per the orthodontist's instructions. After the treatment plan receives the orthodontist's approval, Brius, along with the brackets and digital bonding trays, are designed and manufactured. These components are then shipped back to the orthodontist for the procedure.
-      </p>
-      <p>
-        In the final step, the orthodontist bonds the brackets using the digital bonding tray and the arms of the Brius are engaged to the teeth. These arms are almost passive when the teeth are aligned. When the arms are stretched or squeezed to engage with the teeth, they apply a precise force/moment that guides the teeth to their ideal final position. Through this process, Brius provides an efficient and technologically advanced solution for aligning teeth.
-      </p>
-    </div>
+      <video id="videoPlayer" width="100%" controls style="display:none;">
+        <source src="BravaByBrius.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      </div>
+      
+      
+      <div class="content-section" id="Lectures">
+        <h2>Lectures</h2>
+        <p>
+        </p>
+        <p>
+             </p>
+      </div>
+
+
     
-    <div class="content-section" id="podcasts">
-      <!-- Podcasts content goes here -->
-    </div>
-    
-    <div class="content-section" id="talks">
-      <!-- Talks content goes here -->
-    </div>
+
+
+      
+
   </div>
+    
   
   <!-- JavaScript to handle tab color changes, content display, and logo height adjustment -->
   <script>
@@ -301,75 +342,13 @@ var logo = document.getElementById('logo');
 var tabHeight = tabs[0].offsetHeight;
 logo.style.height = tabHeight + 'px';
 
+function playVideo() {
+  var video = document.getElementById('videoPlayer');
+  var container = document.getElementById('videoContainer');
+  var thumb = document.getElementById('videoThumb');
+  video.style.display = 'block';
+  video.play();
+  container.style.display = 'none';
+  thumb.style.display = 'none';
+}
   </script>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dr. Mehdi Peikcdar - Personal Website</title>
-  <style>
-    /* Your existing CSS styles */
-    /* ... */
-    /* Added CSS for chatbot */
-    #chat-container {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 250px; /* Adjust this width to match the Send button */
-        height: 400px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-        display: flex;
-        flex-direction: column;
-        z-index: 1000;
-    }
-    #chat-header {
-        padding: 10px;
-        background-color: #eee;
-        border-bottom: 1px solid #ddd;
-        text-align: center; /* This will center the text */
-
-    }
-    #chat-body {
-        padding: 10px;
-        flex-grow: 1;
-        overflow-y: auto;
-    }
-    #chat-footer {
-        padding: 10px;
-        background-color: #eee;
-        border-top: 1px solid #ddd;
-    }
-    <style>
-        #podcasts ul li {
-          margin-bottom: 500px; /* Adds space below each list item */
-        }
-
-        #podcasts ul li h3 {
-          margin-bottom: 10px; /* Adds space below the title */
-          color: #color-code; /* Change the color of the title */
-        }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <!-- ... -->
-
-  <!-- Content -->
-  <!-- ... -->
-  
-  <!-- JavaScript to handle tab color changes, content display, and logo height adjustment -->
-  <script>
-    /* Your existing JS code */
-  </script>
-  
-</body>
-</html>
-<script type="module">
-  import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-  Chatbot.init({
-      chatflowid: "7b6a562b-58b6-4d1b-9ad5-4ed66bd74595",
-      apiHost: "http://localhost:3000",
-  })
-</script>
-</html>
