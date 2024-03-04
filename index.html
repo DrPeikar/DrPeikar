@@ -180,6 +180,109 @@ body {
   margin-bottom: 60px; /* Adjust this value as needed */
 }
 
+@media screen and (max-width: 600px) {
+  #podcasts iframe, #podcasts img {
+    width: 100%; /* or 100%, depending on desired margin */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the element */
+  }
+}
+
+@media screen and (max-width: 600px) {
+      body {
+        font-size: 14px; /* Slightly smaller on mobile devices */
+      }
+      /* Update the content-section styling for mobile */
+      .content-section {
+        margin: 0 10%; /* Adjusted from 0 25% to reduce the left and right margins */
+        max-width: 80%; /* Increased from 50% to make content wider on mobile */
+      }
+      /* Add any additional mobile-specific styles here */
+    }
+
+
+  /* Existing CSS styles for desktop view */
+  .dr-peikar-photo img {
+    max-width: 20%; /* This controls the image size in desktop view */
+    /* Additional styles for the image */
+  }
+
+  @media screen and (max-width: 600px) {
+    .dr-peikar-photo img {
+      max-width: 80%; /* Increase the max-width for mobile devices */
+      /* You can also add additional styles here to ensure the image is centered and looks good on mobile devices */
+      display: block; /* Ensures the image is a block-level element */
+      margin: 0 auto; /* Centers the image horizontally */
+    }
+  }
+
+  .dr-peikar-photo img {
+  max-width: 40%; /* Adjusted from 20% to make the image larger */
+  display: block; /* Ensures the image is a block-level element */
+  margin: 0 auto; /* Centers the image horizontally */
+}
+
+/* Ensuring Logo Proportions and Adjusting Navigation for Mobile */
+@media screen and (max-width: 600px) {
+  .nav {
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align items for a tidy look */
+    padding: 10px 0; /* Adjust padding to suit mobile layout */
+  }
+
+  .logo {
+    max-width: 120px; /* Adjust max width for mobile logo size */
+    max-height: auto; /* Maintain aspect ratio */
+    width: auto; /* Adjust width automatically */
+    margin-bottom: 10px; /* Add some space below the logo */
+  }
+
+  .nav ul {
+    width: 100%; /* Allow the nav list to fill the container */
+    display: flex; /* Enable flexbox for the nav list */
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center; /* Center-align nav items */
+    padding: 0; /* Remove padding */
+  }
+
+  .nav li {
+    width: 100%; /* Full width for list items */
+    text-align: center; /* Center text for list items */
+  }
+
+  .nav a {
+    padding: 10px; /* Adjust padding for tap targets */
+    width: 100%; /* Ensure anchor tags fill their list item containers */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+}
+/* Adjust media elements for landscape orientation */
+@media screen and (orientation: landscape) {
+  .media-element {
+    max-width: 100%; /* Limit width to prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Optionally, adjust the content section or container size */
+  .content, .content-section {
+    max-width: 100%; /* Adjust based on your layout */
+    padding: 5px; /* Add some padding for readability */
+  }
+}
+
+/* Further refinement for specific device widths in landscape */
+@media screen and (orientation: landscape) and (max-height: 400px) { /* Example breakpoint */
+  .media-element {
+    max-width: 90%; /* Slightly reduce width for very narrow viewports */
+  }
+
+  .content, .content-section {
+    padding: 5px; /* Ensure content is not too wide */
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -195,6 +298,7 @@ body {
     <!-- Logo -->
     <img class="logo" id="logo" src="DrPeikarLogo.png" alt="Dr. Peikar Logo">
   </div>
+
   
   <!-- Content -->
   <div class="content">
@@ -282,17 +386,19 @@ body {
 
     <div class="content-section" id="Brius">
       <h2 style="text-align: center;">Brava By Brius</h2>
-        <p>
+       
+      <div id="videoContainer" style="position: relative;">
+        <img id="videoThumb" src="thumbnail.png" style="width:100%; cursor: pointer;" onclick="playVideo()"/>
+        <img src="playButton.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10%; height: auto;cursor: pointer;" onclick="playVideo()"/>
+    </div>
+    <video id="videoPlayer" width="100%" controls style="display:none;">
+      <source src="BravaByBrius.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>
           Dr. Mehdi Peikar, a UCLA-trained orthodontist with extensive expertise in quantum mechanics, condensed matter, and biomechanics, is the inventor and founder of <a href="https://www.brius.com" target="_blank">Brius Technologies</a>. The flagship product, Brava, represents a groundbreaking advancement in orthodontic treatment, leveraging over 60 patents to offer a novel approach to teeth straightening. Unlike traditional methods, Brava introduces a unique system known as Independent Mover technology, which utilizes AI to plan and execute the independent and simultaneous movement of teeth, ensuring a customized, efficient, and patient-centric treatment experience. This innovation not only accelerates the orthodontic process but also enhances comfort and outcomes for patients. Brius Technologies has successfully raised over $50 million in funding, treated thousands of patients across the US and Asia, and solidified his reputation as a leading innovator in the field of orthodontics, poised to impact the future of dental care with his contributions.
         </p>        
-        <div id="videoContainer" style="position: relative;">
-          <img id="videoThumb" src="Thumbnail.png" style="width:100%; cursor: pointer;" onclick="playVideo()"/>
-          <img src="playbutton.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10%; height: auto;cursor: pointer;" onclick="playVideo()"/>
-      </div>
-      <video id="videoPlayer" width="100%" controls style="display:none;">
-        <source src="BravaByBrius.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+
       </div>
       
       
@@ -365,4 +471,15 @@ function playVideo() {
   container.style.display = 'none';
   thumb.style.display = 'none';
 }
+
+document.getElementById("dropdownButton").onclick = function() {
+  var content = document.getElementById("dropdownContent");
+  if (content.style.display === "none") {
+    content.style.display = "block";
+  } else {
+    content.style.display = "none";
+  }
+};
+
+
   </script>
